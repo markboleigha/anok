@@ -16,8 +16,6 @@ class Language {
     public function __construct() { 
         
         $this->CI =& get_instance();
-        $this->CI->load->helper('url');
-        $this->CI->config->item('base_url');
         $this->agent = $_SERVER['HTTP_USER_AGENT']; 
         $this->language();
         $this->language = $this->language();
@@ -96,7 +94,7 @@ class Language {
 
     public function parse($string){
         
-        $skin = preg_replace_callback('/{\@lng->(.+?)}/i', create_function('$matches', 'return lang("$matches[1]");'), $skin);
+        $skin = preg_replace_callback('/{\@lang->(.+?)}/i', create_function('$replace', 'return lang("$replace[1]");'), $skin);
     
         return $skin;
     }
