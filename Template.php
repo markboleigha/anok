@@ -5,7 +5,7 @@ class Template {
   
   //Load Codeigniter Core
 	private $CI;
-	//public $tpl = array();
+	
   
   /*
   * Initialize the function
